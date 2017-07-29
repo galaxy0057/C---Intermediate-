@@ -1,0 +1,51 @@
+      for(x = 0; x < book.Length; ++x)
+
+      {
+
+          try
+
+          {
+
+             Console.Write("Enter title ");
+
+             title = Console.ReadLine();
+
+             Console.Write("Enter author ");
+
+             author = Console.ReadLine();
+
+             Console.Write("Enter price ");
+
+             price = Convert.ToDouble(Console.ReadLine());
+
+             Console.Write("Enter pages ");
+
+             pages = Convert.ToInt32(Console.ReadLine());
+
+             book[x] = new Book(title, author, price, pages);
+
+          }
+
+          catch(FormatException fe)
+
+          {
+
+             Console.WriteLine(fe.Message);
+
+             book[x] = new Book(title, author, 0, 0);
+
+          }
+
+          catch(BookException be)
+
+          {
+
+             Console.WriteLine(be.Message);
+
+             book[x] = new Book(title, author,
+
+               (pages * Book.RATE), pages);
+
+          }
+
+      }????????????????
